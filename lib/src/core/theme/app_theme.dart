@@ -1,113 +1,85 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class AppTheme {
-  static ThemeData get light {
-    final ThemeData base = FlexThemeData.light(
-      scheme: FlexScheme.bigStone,
-      fontFamily: 'Rubik',
-      appBarOpacity: 0.0,
-      subThemesData: const FlexSubThemesData(
-        interactionEffects: true,
-        tintedDisabledControls: true,
-        useM2StyleDividerInM3: true,
-        tabBarDividerColor: Color(0x00000000),
-        tabBarIndicatorWeight: 4,
-        tabBarIndicatorTopRadius: 0,
-        progressIndicatorYear2023: false,
-        filledButtonRadius: 10.0,
-        elevatedButtonRadius: 10.0,
-        outlinedButtonRadius: 10.0,
-        inputDecoratorSchemeColor: SchemeColor.primary,
-        inputDecoratorIsFilled: true,
-        inputDecoratorBackgroundAlpha: 30,
-        inputDecoratorBorderSchemeColor: SchemeColor.primary,
-        inputDecoratorBorderType: FlexInputBorderType.outline,
-        inputDecoratorRadius: 10.0,
-        inputDecoratorUnfocusedBorderIsColored: true,
-        inputDecoratorBorderWidth: 1.0,
-        inputDecoratorFocusedBorderWidth: 2.0,
-        listTileIconSchemeColor: SchemeColor.primary,
-        alignedDropdown: true,
-        appBarCenterTitle: true,
+/// The [AppTheme] defines light and dark themes for the app.
+abstract final class AppTheme {
+  // The FlexColorScheme defined light mode ThemeData.
+  static ThemeData light = FlexThemeData.light(
+    // Using FlexColorScheme built-in FlexScheme enum based colors
+    scheme: FlexScheme.jungle,
+    fontFamily: 'Inter',
+    // Component theme configurations for light mode.
+    subThemesData: const FlexSubThemesData(
+      interactionEffects: true,
+      tintedDisabledControls: true,
+      useM2StyleDividerInM3: true,
+      sliderYear2023: false,
+      inputDecoratorSchemeColor: SchemeColor.primary,
+      inputDecoratorIsFilled: true,
+      inputDecoratorContentPadding: EdgeInsetsDirectional.fromSTEB(
+        12,
+        16,
+        12,
+        12,
       ),
-      keyColors: const FlexKeyColors(
-        useSecondary: true,
-        useTertiary: true,
-        useError: true,
-      ),
-      variant: FlexSchemeVariant.expressive,
-      visualDensity: FlexColorScheme.comfortablePlatformDensity,
-    );
+      inputDecoratorBackgroundAlpha: 7,
+      inputDecoratorBorderSchemeColor: SchemeColor.primary,
+      inputDecoratorBorderType: FlexInputBorderType.outline,
+      inputDecoratorRadius: 8.0,
+      inputDecoratorUnfocusedBorderIsColored: true,
+      inputDecoratorBorderWidth: 1.0,
+      inputDecoratorFocusedBorderWidth: 2.0,
+      inputDecoratorPrefixIconSchemeColor: SchemeColor.onPrimaryFixedVariant,
+      inputDecoratorSuffixIconSchemeColor: SchemeColor.primary,
+      alignedDropdown: true,
+      navigationRailUseIndicator: true,
+    ),
+    // ColorScheme seed generation configuration for light mode.
+    keyColors: const FlexKeyColors(),
+    tones: FlexSchemeVariant.candyPop.tones(Brightness.light),
+    // Direct ThemeData properties.
+    visualDensity: FlexColorScheme.comfortablePlatformDensity,
+    cupertinoOverrideTheme: const CupertinoThemeData(applyThemeToAll: true),
+  );
 
-    return base.copyWith(
-      splashFactory: NoSplash.splashFactory,
-      splashColor: Colors.transparent,
-      highlightColor: Colors.transparent,
-      hoverColor: Colors.transparent,
-      appBarTheme: base.appBarTheme.copyWith(
-        iconTheme: const IconThemeData(size: 28),
-        titleTextStyle: const TextStyle(
-          fontSize: 22,
-          fontWeight: FontWeight.bold,
-        ),
+  // The FlexColorScheme defined dark mode ThemeData.
+  static ThemeData dark = FlexThemeData.dark(
+    // Using FlexColorScheme built-in FlexScheme enum based colors.
+    scheme: FlexScheme.jungle,
+    fontFamily: 'Inter',
+    // Component theme configurations for dark mode.
+    subThemesData: const FlexSubThemesData(
+      interactionEffects: true,
+      tintedDisabledControls: true,
+      blendOnColors: true,
+      useM2StyleDividerInM3: true,
+      sliderYear2023: false,
+      inputDecoratorSchemeColor: SchemeColor.primary,
+      inputDecoratorIsFilled: true,
+      inputDecoratorContentPadding: EdgeInsetsDirectional.fromSTEB(
+        12,
+        16,
+        12,
+        12,
       ),
-    );
-  }
-
-  static ThemeData get dark {
-    final ThemeData base = FlexThemeData.dark(
-      scheme: FlexScheme.bigStone,
-      fontFamily: 'Rubik',
-      appBarOpacity: 0.0,
-      surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,
-      blendLevel: 8,
-      subThemesData: const FlexSubThemesData(
-        interactionEffects: true,
-        tintedDisabledControls: true,
-        blendOnColors: true,
-        useM2StyleDividerInM3: true,
-        tabBarDividerColor: Color(0x00000000),
-        tabBarIndicatorWeight: 4,
-        tabBarIndicatorTopRadius: 0,
-        progressIndicatorYear2023: false,
-        filledButtonRadius: 10.0,
-        elevatedButtonRadius: 10.0,
-        outlinedButtonRadius: 10.0,
-        inputDecoratorSchemeColor: SchemeColor.primary,
-        inputDecoratorIsFilled: true,
-        inputDecoratorBackgroundAlpha: 30,
-        inputDecoratorBorderSchemeColor: SchemeColor.primary,
-        inputDecoratorBorderType: FlexInputBorderType.outline,
-        inputDecoratorRadius: 10.0,
-        inputDecoratorUnfocusedBorderIsColored: true,
-        inputDecoratorBorderWidth: 1.0,
-        inputDecoratorFocusedBorderWidth: 2.0,
-        listTileIconSchemeColor: SchemeColor.primary,
-        alignedDropdown: true,
-        appBarCenterTitle: true,
-      ),
-      keyColors: const FlexKeyColors(
-        useSecondary: true,
-        useTertiary: true,
-        useError: true,
-      ),
-      variant: FlexSchemeVariant.expressive,
-      visualDensity: FlexColorScheme.comfortablePlatformDensity,
-    );
-
-    return base.copyWith(
-      splashFactory: NoSplash.splashFactory,
-      splashColor: Colors.transparent,
-      highlightColor: Colors.transparent,
-      hoverColor: Colors.transparent,
-      appBarTheme: base.appBarTheme.copyWith(
-        iconTheme: const IconThemeData(size: 28),
-        titleTextStyle: const TextStyle(
-          fontSize: 22,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    );
-  }
+      inputDecoratorBackgroundAlpha: 40,
+      inputDecoratorBorderSchemeColor: SchemeColor.primary,
+      inputDecoratorBorderType: FlexInputBorderType.outline,
+      inputDecoratorRadius: 8.0,
+      inputDecoratorUnfocusedBorderIsColored: true,
+      inputDecoratorBorderWidth: 1.0,
+      inputDecoratorFocusedBorderWidth: 2.0,
+      inputDecoratorPrefixIconSchemeColor: SchemeColor.primaryFixed,
+      inputDecoratorSuffixIconSchemeColor: SchemeColor.primary,
+      alignedDropdown: true,
+      navigationRailUseIndicator: true,
+    ),
+    // ColorScheme seed configuration setup for dark mode.
+    keyColors: const FlexKeyColors(),
+    tones: FlexSchemeVariant.candyPop.tones(Brightness.dark),
+    // Direct ThemeData properties.
+    visualDensity: FlexColorScheme.comfortablePlatformDensity,
+    cupertinoOverrideTheme: const CupertinoThemeData(applyThemeToAll: true),
+  );
 }

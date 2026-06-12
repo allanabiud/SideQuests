@@ -24,7 +24,6 @@ dependencies:
   auto_route: ^11.1.0
   flash: ^3.1.1
   intl: ^0.20.2
-  lucide_icons_flutter: ^3.1.13
 
 dev_dependencies:
   flutter_test:
@@ -45,12 +44,12 @@ flutter:
     - assets/images/
 
   fonts:
-    - family: Rubik
+    - family: Inter
       fonts:
-        - asset: assets/fonts/Rubik-Regular.ttf
-        - asset: assets/fonts/Rubik-Bold.ttf
+        - asset: assets/fonts/Inter-Regular.ttf
+        - asset: assets/fonts/Inter-Bold.ttf
           weight: 700
-        - asset: assets/fonts/Rubik-Medium.ttf
+        - asset: assets/fonts/Inter-Medium.ttf
           weight: 500
-        - asset: assets/fonts/Rubik-Italic.ttf
+        - asset: assets/fonts/Inter-Italic.ttf
           style: italic
