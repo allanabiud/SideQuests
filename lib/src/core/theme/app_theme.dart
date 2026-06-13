@@ -77,7 +77,8 @@ abstract final class AppTheme {
     ),
     // ColorScheme seed configuration setup for dark mode.
     keyColors: const FlexKeyColors(),
-    tones: FlexSchemeVariant.candyPop.tones(Brightness.dark),
+    darkIsTrueBlack: true,
+    tones: FlexSchemeVariant.candyPop.tones(Brightness.dark).surfacesUseBW(),
     // Direct ThemeData properties.
     visualDensity: FlexColorScheme.comfortablePlatformDensity,
     cupertinoOverrideTheme: const CupertinoThemeData(applyThemeToAll: true),

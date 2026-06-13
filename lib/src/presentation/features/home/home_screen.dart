@@ -8,7 +8,6 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final colorScheme = theme.colorScheme;
 
     const title = 'SideQuests';
 
@@ -31,14 +30,8 @@ class HomeScreen extends StatelessWidget {
               onPressed: () {
                 // TODO: Open Profile/Settings
               },
-              icon: Container(
-                padding: const EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: theme.colorScheme.primaryContainer.withValues(
-                    alpha: 0.5,
-                  ),
-                ),
+              icon: CircleAvatar(
+                radius: 18,
                 child: Icon(
                   Icons.person_rounded,
                   size: 20,
@@ -54,39 +47,11 @@ class HomeScreen extends StatelessWidget {
       ),
       extendBody: true,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.only(bottom: 8),
-        child: Container(
-          height: 60,
-          width: 60,
-          decoration: BoxDecoration(
-            color: colorScheme.primary,
-            borderRadius: BorderRadius.circular(15),
-            boxShadow: [
-              BoxShadow(
-                color: colorScheme.primary.withValues(alpha: 0.35),
-                blurRadius: 10,
-                offset: const Offset(0, 4),
-              ),
-            ],
-          ),
-          child: Material(
-            color: Colors.transparent,
-            child: InkWell(
-              borderRadius: BorderRadius.circular(15),
-              onTap: () {
-                // TODO: Open Create Quest Screen
-              },
-              child: Center(
-                child: Icon(
-                  Icons.add_rounded,
-                  color: colorScheme.onPrimary,
-                  size: 34,
-                ),
-              ),
-            ),
-          ),
-        ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // TODO: Open Create Quest Screen
+        },
+        child: const Icon(Icons.add_rounded, size: 34),
       ),
     );
   }
