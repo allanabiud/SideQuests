@@ -3,6 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
+import '../../../core/theme/app_icons.dart';
 import '../../common/widgets/empty_state.dart';
 import 'providers/home_providers.dart';
 import 'widgets/create_side_quest_bottom_sheet.dart';
@@ -26,9 +27,9 @@ class HomeScreen extends ConsumerWidget {
 
   void _showJoinQuest(BuildContext context) {
     // TODO: Implement Join Quest Dialog
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Join Quest coming soon!')),
-    );
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(const SnackBar(content: Text('Join Quest coming soon!')));
   }
 
   @override
@@ -74,9 +75,9 @@ class HomeScreen extends ConsumerWidget {
           if (quests.isEmpty) {
             return const EmptyState(
               icon: Icons.explore_outlined,
-              title: 'No SideQuests Yet',
+              title: 'No Side Quests Yet',
               description:
-                  'Every great journey has SideQuests. Create one to begin!',
+                  'Every great journey has side quests. Create one to begin!',
             );
           }
 
@@ -95,14 +96,7 @@ class HomeScreen extends ConsumerWidget {
                   leading: CircleAvatar(
                     backgroundColor: theme.colorScheme.secondaryContainer,
                     foregroundColor: theme.colorScheme.onSecondaryContainer,
-                    child: Icon(
-                      quest.iconCodePoint != null
-                          ? IconData(
-                              quest.iconCodePoint!,
-                              fontFamily: 'MaterialIcons',
-                            )
-                          : Icons.explore_rounded,
-                    ),
+                    child: Icon(AppIcons.getQuestIcon(quest.iconCodePoint)),
                   ),
                   title: Text(
                     quest.title,

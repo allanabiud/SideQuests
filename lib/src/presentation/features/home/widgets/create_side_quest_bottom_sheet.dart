@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
+import '../../../../core/theme/app_icons.dart';
 import '../../../common/widgets/app_bottom_sheet.dart';
 import '../providers/create_side_quest_controller.dart';
 import 'icon_selection_sheet.dart';
@@ -114,7 +115,7 @@ class _CreateSideQuestBottomSheetState
     final isLoading = state is AsyncLoading;
 
     return AppBottomSheet(
-      title: 'Create SideQuest',
+      title: 'Create Side Quest',
       padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
       child: Form(
         key: _formKey,
@@ -136,12 +137,7 @@ class _CreateSideQuestBottomSheetState
                       borderRadius: BorderRadius.circular(16),
                     ),
                     child: Icon(
-                      _selectedIconCodePoint != null
-                          ? IconData(
-                              _selectedIconCodePoint!,
-                              fontFamily: 'MaterialIcons',
-                            )
-                          : Icons.explore_rounded,
+                      AppIcons.getQuestIcon(_selectedIconCodePoint),
                       color: theme.colorScheme.primary,
                       size: 28,
                     ),
