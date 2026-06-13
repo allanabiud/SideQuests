@@ -6,18 +6,19 @@ This document outlines the roadmap for developing the SideQuests app using Clean
 
 _Goal: Build the core UI and logic using local storage before connecting a backend._
 
-- [ ] **1.1 Define Domain Entities**
-  - Create `Quest` and `User` entities using `Freezed`.
-  - `Quest` fields: `id`, `title`, `description`, `deadline`, `inviteCode`, `creatorId`.
-  - `Participant` fields: `userId`, `displayName`, `isCompleted`, `completedAt`.
-- [ ] **1.2 Setup Local Storage (Hive)**
-  - Implement `QuestRepository` interface in `domain`.
-  - Implement `HiveQuestRepository` in `data`.
+- [x] **1.1 Define Domain Entities**
+  - Create `SideQuest`, `Participant`, and `AppUser` entities using `Freezed`.
+  - `SideQuest` fields: `id`, `title`, `description?`, `deadline`, `inviteCode`, `creatorId`, `createdAt`, `List<Participant> participants`.
+  - `Participant` fields: `userId`, `displayName`, `isCompleted`, `completedAt`, `joinedAt`.
+  - `AppUser` fields: `id`, `displayName`, `photoUrl?`.
+- [x] **1.2 Setup Local Storage (Hive)**
+  - Implement `SideQuestRepository` interface in `domain`.
+  - Implement `HiveSideQuestRepository` in `data`.
   - Generate Hive TypeAdapters for entities.
-- [ ] **1.3 UI: Quest Creation Flow**
-  - Build a "Create Quest" modal/sheet/screen.
+- [x] **1.3 UI: SideQuest Creation Flow**
+  - Build a "Create SideQuest" modal/sheet/screen.
   - Implement form validation and a `DateTime` picker for deadlines.
-- [ ] **1.4 UI: Quest List (Home)**
+- [x] **1.4 UI: SideQuest List (Home)**
   - Refactor `HomeScreen` to display a list of active quests from Hive.
   - Add an empty state when no quests are present.
 
@@ -26,7 +27,7 @@ _Goal: Build the core UI and logic using local storage before connecting a backe
 _Goal: Enable users to interact with individual quests and track progress._
 
 - [ ] **2.1 Quest Detail Screen**
-  - Create `@RoutePage() QuestDetailScreen`.
+  - Create `@RoutePage() SideQuestDetailScreen`.
   - Implement a live countdown timer for the deadline.
   - Display the participant list with status indicators.
 - [ ] **2.2 Completion Logic**
@@ -44,7 +45,7 @@ _Goal: Transition to a shared database to allow multi-user interaction._
   - Initialize Firebase Project (Android/iOS).
   - Implement Anonymous or Social Authentication.
 - [ ] **3.2 Firestore Repository**
-  - Create `FirestoreQuestRepository`.
+  - Create `FirestoreSideQuestRepository`.
   - Implement real-time synchronization using Firestore Streams.
   - Migrate local Hive data to Firestore on first sign-in.
 - [ ] **3.3 Joining System**

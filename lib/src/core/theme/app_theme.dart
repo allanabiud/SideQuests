@@ -26,7 +26,7 @@ abstract final class AppTheme {
       inputDecoratorBackgroundAlpha: 7,
       inputDecoratorBorderSchemeColor: SchemeColor.primary,
       inputDecoratorBorderType: FlexInputBorderType.outline,
-      inputDecoratorRadius: 8.0,
+      inputDecoratorRadius: 16.0,
       inputDecoratorUnfocusedBorderIsColored: true,
       inputDecoratorBorderWidth: 1.0,
       inputDecoratorFocusedBorderWidth: 2.0,
@@ -36,7 +36,7 @@ abstract final class AppTheme {
       navigationRailUseIndicator: true,
     ),
     // ColorScheme seed generation configuration for light mode.
-    keyColors: const FlexKeyColors(),
+    keyColors: const FlexKeyColors(useSecondary: true),
     tones: FlexSchemeVariant.candyPop.tones(Brightness.light),
     // Direct ThemeData properties.
     visualDensity: FlexColorScheme.comfortablePlatformDensity,
@@ -66,7 +66,7 @@ abstract final class AppTheme {
       inputDecoratorBackgroundAlpha: 40,
       inputDecoratorBorderSchemeColor: SchemeColor.primary,
       inputDecoratorBorderType: FlexInputBorderType.outline,
-      inputDecoratorRadius: 8.0,
+      inputDecoratorRadius: 16.0,
       inputDecoratorUnfocusedBorderIsColored: true,
       inputDecoratorBorderWidth: 1.0,
       inputDecoratorFocusedBorderWidth: 2.0,
@@ -76,7 +76,7 @@ abstract final class AppTheme {
       navigationRailUseIndicator: true,
     ),
     // ColorScheme seed configuration setup for dark mode.
-    keyColors: const FlexKeyColors(),
+    keyColors: const FlexKeyColors(useSecondary: true),
     darkIsTrueBlack: true,
     tones: FlexSchemeVariant.candyPop.tones(Brightness.dark).surfacesUseBW(),
     // Direct ThemeData properties.

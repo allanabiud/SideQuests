@@ -1,5 +1,6 @@
 import 'package:hive_ce_flutter/hive_ce_flutter.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import '../../../hive_registrar.g.dart';
 
 part 'hive_service.g.dart';
 
@@ -15,8 +16,7 @@ class HiveService {
     if (_initialized) return;
 
     await Hive.initFlutter();
-    // Register adapters here if needed
-    // Hive.registerAdapters();
+    Hive.registerAdapters();
     _initialized = true;
   }
 
